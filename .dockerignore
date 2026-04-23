@@ -1,0 +1,31 @@
+# VCS / IDE
+.git
+.github
+.idea
+.vscode
+
+# Build artefacts
+bin
+*.test
+*.out
+coverage.*
+*.coverprofile
+
+# Runtime data written by local runs
+storage
+*.log
+
+# Temp / cache
+.cache
+.task
+.golangci-cache
+tmp
+
+# Docs / meta that do not need to ship into the image
+ARCHITECTURE.md
+CONTRIBUTING.md
+README.md
+Taskfile.yaml
+
+# OS cruft
+.DS_Store

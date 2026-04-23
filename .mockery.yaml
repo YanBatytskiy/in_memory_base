@@ -1,0 +1,42 @@
+template: testify
+
+packages:
+  github.com/YanBatytskiy/in_memory_base/internal/database/storage:
+    interfaces:
+      CommandStorage:
+      QueryStorage:
+    config:
+      dir: "{{.InterfaceDir}}/mocks"
+      filename: "storage_mock.go"
+      pkgname: "storage_test"
+      formatter: gofmt
+
+  github.com/YanBatytskiy/in_memory_base/internal/database:
+    interfaces:
+      ComputeLayer:
+      StorageLayer:
+    config:
+      dir: "{{.InterfaceDir}}/mocks"
+      filename: "database_mock.go"
+      pkgname: "database_test"
+      formatter: gofmt
+
+  github.com/YanBatytskiy/in_memory_base/internal/database/storage/engine/in_memory/wal:
+    interfaces:
+      CommandHashTable:
+      segmentRead:
+      segmentWrite:
+    config:
+      dir: "{{.InterfaceDir}}/mocks"
+      filename: "wal_mock.go"
+      pkgname: "wal_test"
+      formatter: gofmt
+
+  github.com/YanBatytskiy/in_memory_base/internal/database/storage/engine/in_memory:
+    interfaces:
+      CommandEngine:
+    config:
+      dir: "{{.InterfaceDir}}/mocks"
+      filename: "engine_mock.go"
+      pkgname: "inmemory_test"
+      formatter: gofmt

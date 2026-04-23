@@ -1,0 +1,20 @@
+# Config for running the server inside a container:
+# - binds to 0.0.0.0 so the port forward from the host reaches it,
+# - stores the WAL under /storage/wal, which is backed by a Docker volume.
+engine_type: "in_memory"
+network:
+  engine_address: "0.0.0.0:3323"
+  max_connections: 100
+  max_message_size: 4096
+  idle_timeout: 5m
+  buffer_size: 4096
+  type: tcp
+logging:
+  level: "info"
+wal:
+  flushing_batch_timeout: 10ms
+  flushing_batch_count: 2
+  flushing_batch_volume: 10485760
+  max_segment_size: 1073741824
+  segment_storage_path: "/storage/wal"
+  mask_name: "segment_"

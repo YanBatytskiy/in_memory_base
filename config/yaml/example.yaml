@@ -1,0 +1,17 @@
+engine_type: "in_memory"
+network:
+  engine_address: "127.0.0.1:3323"
+  max_connections: 2
+  max_message_size: 4096
+  idle_timeout: 5m
+  buffer_size: 4096
+  type: tcp
+logging:
+  level: "dev"
+wal:
+  flushing_batch_timeout: 10ms
+  flushing_batch_count: 2
+  flushing_batch_volume: 10485760
+  max_segment_size: 1073741824
+  segment_storage_path: "./storage/wal"
+  mask_name: "segment_"

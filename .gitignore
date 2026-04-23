@@ -1,0 +1,24 @@
+.DS_Store
+
+# IDE / workspace
+.idea/
+.vscode/
+go.work
+go.work.sum
+
+# Build outputs
+/bin/
+/server
+/cli
+*.test
+*.out
+
+# Runtime data
+/storage/
+*.log
+
+# Coverage and temporary files
+coverage.*
+*.coverprofile
+.cache/
+tmp/

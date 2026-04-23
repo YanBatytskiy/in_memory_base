@@ -1,0 +1,19 @@
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: in-memory-base:local
+    container_name: in-memory-base
+    restart: unless-stopped
+    environment:
+      CONFIG_PATH: /config/server.yaml
+    ports:
+      - "3323:3323"
+    volumes:
+      - ./config/yaml/docker.yaml:/config/server.yaml:ro
+      - wal-data:/storage
+    stop_grace_period: 10s
+
+volumes:
+  wal-data:
